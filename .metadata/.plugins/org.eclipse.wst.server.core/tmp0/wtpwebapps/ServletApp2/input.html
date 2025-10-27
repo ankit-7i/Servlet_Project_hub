@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Toggle</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .form-container {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Form Demo</h1>
+        <div class="btn-group">
+            <button onclick="showForm('loginForm')">Login Form</button>
+            <button onclick="showForm('productForm')">Product Form</button>
+        </div>
+
+        <div id="loginForm" class="form-container">
+            <form action="ls" method="post">
+                <label for="uname">Username:</label>
+                <input type="text" id="uname" name="uname" required>
+
+                <label for="upwd">Password:</label>
+                <input type="password" id="upwd" name="upwd" required>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div id="productForm" class="form-container">
+            <form action="ps" method="post">
+                <label for="pname">Product Name:</label>
+                <input type="text" id="pname" name="pname" required>
+
+                <label for="pid">Product ID:</label>
+                <input type="number" id="pid" name="pid" required>
+
+                <label for="pqt">Product Quantity:</label>
+                <input type="number" id="pqt" name="pqt" required>
+
+                <label for="price">Product Price:</label>
+                <input type="number" id="price" name="price" required>
+
+                <input type="submit" value="Get Data">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            document.querySelectorAll('.form-container').forEach(form => {
+                form.style.display = 'none';
+            });
+            document.getElementById(formId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

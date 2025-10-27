@@ -1,0 +1,52 @@
+package com.servlet.pack1;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import jakarta.servlet.GenericServlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebServlet;
+
+@WebServlet("/ps")
+public class FourthServlet extends GenericServlet {
+    @Override
+    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+        PrintWriter pw = res.getWriter();
+        res.setContentType("text/html");
+
+        String product_name = req.getParameter("pname");
+        int product_id = Integer.parseInt(req.getParameter("pid"));
+        int product_quantity = Integer.parseInt(req.getParameter("pqt"));
+        int product_price = Integer.parseInt(req.getParameter("price"));
+
+        // Apply 10% price increase if quantity <= 5
+        if (product_quantity <= 5) {
+            product_price = (int) (product_price+ (product_price * 1.10));
+        }
+
+        pw.println("<!DOCTYPE html>");
+        pw.println("<html>");
+        pw.println("<head><title>Product Info</title>");
+        pw.println("<style>");
+        pw.println("body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }");
+        pw.println("h1 { color: #333; }");
+        pw.println("table { margin: 0 auto; border-collapse: collapse; }");
+        pw.println("th, td { padding: 10px; border: 1px solid #ddd; }");
+        pw.println("</style>");
+        pw.println("</head>");
+        pw.println("<body>");
+
+        pw.println("<h1>Product Info</h1>");
+        pw.println("<table>");
+        pw.println("<tr><th>Product Name</th><td>" + product_name + "</td></tr>");
+        pw.println("<tr><th>Product ID</th><td>" + product_id + "</td></tr>");
+        pw.println("<tr><th>Product Quantity</th><td>" + product_quantity + "</td></tr>");
+        pw.println("<tr><th>Final Price</th><td>" + product_price + "</td></tr>");
+        pw.println("</table>");
+        pw.println("<p><a href='javascript:history.back()'>Back</a></p>");
+
+        pw.println("</body>");
+        pw.println("</html>");
+    }
+}

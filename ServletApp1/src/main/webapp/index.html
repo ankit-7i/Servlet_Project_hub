@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration Form</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #185a9d;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: 500;
+            color: #333;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #43cea2;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #185a9d, #43cea2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+        }
+
+        ::placeholder {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form action="gh" method="post">
+            <label for="uname">Full Name</label>
+            <input type="text" id="uname" name="uname" placeholder="Enter your full name" required>
+
+            <label for="uemail">Email</label>
+            <input type="email" id="uemail" name="uemail" placeholder="Enter your email" required>
+
+            <label for="uphone">Phone Number</label>
+            <input type="tel" id="uphone" name="uphone" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+
+            <label for="upwd">Password</label>
+            <input type="password" id="upwd" name="upwd" placeholder="Enter a password" required>
+
+            <label for="udate">Date of Birth</label>
+            <input type="date" id="udate" name="udate" required>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

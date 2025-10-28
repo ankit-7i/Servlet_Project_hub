@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Number Check Portal</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .container {
+    background: #fff;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .title {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #555;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  select,
+  input,
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  select:focus,
+  input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+
+  button {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.4);
+  }
+
+  .result-card {
+    background: #f7faff;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+    animation: slideUp 0.8s ease;
+  }
+
+  .result-card h2 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+  }
+
+  #resultText {
+    color: #333;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+
+  footer {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title {
+      font-size: 1.6rem;
+    }
+    .container {
+      padding: 1.5rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">🔢 Number Check Portal</h1>
+    <p class="subtitle">Check your numbers instantly</p>
+
+    <form id="checkForm">
+      <select id="checkType" required>
+        <option value="" disabled selected>Select a Number Check</option>
+        <option value="prime">Prime Number</option>
+        <option value="armstrong">Armstrong Number</option>
+        <option value="palindrome">Palindrome Number</option>
+        <option value="evenodd">Even / Odd</option>
+        <option value="table">Multiplication Table</option>
+        <option value="factorial">Factorial</option>
+        <option value="neon">Neon Number</option>
+        <option value="fibonacci">Fibonacci Series</option>
+      </select>
+
+      <input type="number" id="number" placeholder="Enter a number" required />
+      <button type="submit">Check Now</button>
+    </form>
+
+    <div class="result-card">
+      <h2>Result:</h2>
+      <p id="resultText">Your result will appear here...</p>
+    </div>
+
+    <footer>© 2025 Number Check App</footer>
+  </div>
+
+  <script>
+    document.getElementById('checkForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const type = document.getElementById('checkType').value;
+      const num = document.getElementById('number').value;
+
+      if (!type || !num) {
+        alert('Please select a check type and enter a number!');
+        return;
+      }
+
+      const resultCard = document.querySelector('.result-card');
+      const resultText = document.getElementById('resultText');
+
+      resultText.textContent = "⏳ Checking...";
+      resultCard.style.animation = "none";
+      void resultCard.offsetWidth; // restart animation
+
+      try {
+        const response = await fetch(`${type}?num=${num}`);
+        const text = await response.text();
+
+        resultText.textContent = text;
+        resultCard.style.animation = "slideUp 0.8s ease";
+      } catch (err) {
+        resultText.textContent = "⚠️ Error connecting to server!";
+      }
+    });
+  </script>
+</body>
+</html>

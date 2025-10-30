@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Insert Student</title>
+  <script>
+    function onCourseChange() {
+      const sel = document.getElementById('course');
+      const feeInput = document.getElementById('fee');
+      const mapping = {
+        "java-fullstack": 30000,
+        "python-fullstack": 25000,
+        "dotnet-fullstack": 23000
+      };
+      feeInput.value = mapping[sel.value] || '';
+    }
+  </script>
+</head>
+<body>
+  <h2>Register Student</h2>
+  <form action="insertStudent" method="post" enctype="multipart/form-data">
+    <label>ID (unique): <input type="text" name="id" required /></label><br/><br/>
+    <label>First name: <input type="text" name="firstName" required /></label><br/><br/>
+    <label>Last name: <input type="text" name="lastName" required /></label><br/><br/>
+    <label>Course:
+      <select id="course" name="course" onchange="onCourseChange()" required>
+        <option value="">--select--</option>
+        <option value="java-fullstack">Java Full Stack</option>
+        <option value="python-fullstack">Python Full Stack</option>
+        <option value="dotnet-fullstack">Dot Net Full Stack</option>
+      </select>
+    </label><br/><br/>
+    <label>Fee: <input type="number" id="fee" name="fee" readonly /></label><br/><br/>
+    <label>ID Proof (image): <input type="file" name="idProof" accept="image/*" required /></label><br/><br/>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

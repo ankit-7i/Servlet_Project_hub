@@ -1,0 +1,21 @@
+:root{ --bg:#0f1724; --card:#0b1220; --accent:#7c3aed; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);} 
+*{box-sizing:border-box;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif}
+body{margin:0;background:linear-gradient(180deg,#071026 0%, #0b1b2f 100%);color:#e6eef8}
+.container{max-width:920px;margin:48px auto;padding:20px}
+.hero{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.hero.small{margin-bottom:8px}
+.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+.row{display:flex;flex-direction:column;margin-bottom:12px}
+.row label{font-size:13px;color:var(--muted);margin-bottom:6px}
+.row input, .row select{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit}
+.actions{display:flex;gap:10px;align-items:center}
+.btn{background:linear-gradient(90deg,var(--accent),#5b21b6);padding:10px 16px;border-radius:10px;color:white;text-decoration:none;border:none;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+.table-card{background:var(--card);padding:10px;border-radius:12px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
+.link{color:var(--accent);text-decoration:none}
+.footer-note{margin-top:12px;color:var(--muted)}
+.card{transform:translateY(8px);animation:enter .45s ease forwards}
+@keyframes enter{to{transform:none}}
+@media (max-width:640px){.container{padding:12px}.hero{flex-direction:column;align-items:flex-start}.actions{flex-direction:column;align-items:stretch}}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Marriage Eligibility Form</title>
+<style>
+body { font-family: Arial, sans-serif; background: linear-gradient(to right, #e0f7fa, #80deea); text-align: center; }
+form { background: white; display: inline-block; padding: 20px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.15); }
+input, select { margin: 8px; padding: 8px; width: 260px; border: 1px solid #ccc; border-radius: 6px; }
+button { background-color: #00796b; color: white; padding: 10px 18px; border: none; border-radius: 8px; cursor: pointer; }
+button:hover { background-color: #004d40; }
+</style>
+</head>
+<body>
+    <h2>Marriage Eligibility Form</h2>
+    <form action="validate" method="post">
+        <input type="text" name="name" placeholder="Enter Name" required><br>
+        <input type="number" name="age" placeholder="Enter Age" min="0" required><br>
+        <input type="text" name="country" placeholder="Enter Country" value="India" required><br>
+        <input type="text" name="adharNumber" placeholder="Enter 12-digit Aadhar" pattern="\d{12}" required><br>
+        <label><input type="radio" name="gender" value="Male" required> Male</label>
+        <label><input type="radio" name="gender" value="Female" required> Female</label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

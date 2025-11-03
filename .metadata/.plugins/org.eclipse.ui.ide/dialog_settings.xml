@@ -60,6 +60,8 @@
 			<item value=""/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\ankit\Downloads\MarriageEligibilityApp.zip"/>
+			<item value="C:\Users\ankit\Downloads\MarriageEligibilityApp_Eclipse.zip"/>
 			<item value="C:\Users\ankit\Downloads\Student_Application_Servlet_FINAL_Eclipse_Ready.zip"/>
 		</list>
 		<section name="ExternalProjectImportWizard.dialogBounds">

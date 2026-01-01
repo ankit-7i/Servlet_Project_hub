@@ -2,18 +2,14 @@
 <section name="Workbench">
 	<list key="installedFeatures">
 		<item value="org.eclipse.buildship:3.1.9.v20240115-1636"/>
-		<item value="org.eclipse.egit.gitflow.feature:6.9.0.202403050737-r"/>
-		<item value="org.eclipse.egit:6.9.0.202403050737-r"/>
+		<item value="org.eclipse.egit:5.0.0.201806131550-r"/>
 		<item value="org.eclipse.emf.common:2.36.0.v20250629-1403"/>
 		<item value="org.eclipse.emf.ecore:2.41.0.v20250803-1633"/>
 		<item value="org.eclipse.epp.mpc:1.10.3.v20240228-1000"/>
 		<item value="org.eclipse.help:2.3.1700.v20240229-0520"/>
 		<item value="org.eclipse.jdt:3.19.400.v20240229-0520"/>
-		<item value="org.eclipse.jgit.gpg.bc:6.9.0.202403050737-r"/>
-		<item value="org.eclipse.jgit.http.apache:6.9.0.202403050737-r"/>
-		<item value="org.eclipse.jgit.lfs:6.9.0.202403050737-r"/>
-		<item value="org.eclipse.jgit.ssh.apache:6.9.0.202403050737-r"/>
-		<item value="org.eclipse.jgit:6.9.0.202403050737-r"/>
+		<item value="org.eclipse.jgit.gpg.bc:7.4.0.202509020913-r"/>
+		<item value="org.eclipse.jgit:5.0.0.201806131550-r"/>
 		<item value="org.eclipse.jst.common.fproj.enablement.jdt:3.29.0.v202308161955"/>
 		<item value="org.eclipse.jst.enterprise_ui.feature:3.33.0.v202401080452"/>
 		<item value="org.eclipse.justj.openjdk.hotspot.jre.full:17.0.11.v20240426-1830"/>
@@ -57,9 +53,14 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\SERVLET\Project1"/>
 			<item value=""/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\ankit\Downloads\App9 .zip"/>
+			<item value="C:\Users\ankit\Downloads\EclipseDynamicWebProject.zip"/>
+			<item value="C:\Users\ankit\Downloads\Student_validation.zip"/>
+			<item value="C:\Users\ankit\Downloads\Student_validation_fixed.zip"/>
 			<item value="C:\Users\ankit\Downloads\MarriageEligibilityApp.zip"/>
 			<item value="C:\Users\ankit\Downloads\MarriageEligibilityApp_Eclipse.zip"/>
 			<item value="C:\Users\ankit\Downloads\Student_Application_Servlet_FINAL_Eclipse_Ready.zip"/>

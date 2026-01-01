@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>User Login</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-container {
+        background: #ffffff;
+        padding: 40px 60px;
+        border-radius: 15px;
+        border: 3px solid #0072ff;
+        box-shadow: 0 0 30px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 350px;
+    }
+
+    h1 {
+        color: #0072ff;
+        font-size: 28px;
+        margin-bottom: 25px;
+        text-decoration: underline;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #0072ff;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    /* Button style */
+    input[type="submit"] {
+        width: 60%;
+        padding: 12px;
+        font-size: 18px;
+        color: white;
+        background-color: #0072ff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #005bd1;
+        transform: scale(1.05);
+    }
+
+    input[type="submit"]:active {
+        transform: scale(0.92);
+    }
+</style>
+
+</head>
+<body>
+
+<div class="form-container">
+    <h1>User Log In</h1>
+
+    <form action="login" method="post">
+        <input type="text" name="accno" placeholder="Enter Account Number">
+        <input type="text" name="name" placeholder="Enter Account Holder Name">
+        <input type="password" name="pwd" placeholder="Enter Password">
+        
+        <input type="submit" value="Log In">
+    </form>
+
+</div>
+
+</body>
+</html>

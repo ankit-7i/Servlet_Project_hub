@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroStore - Premium Electronics & Gadgets Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* CLEAN HEADER - CENTERED */
+        header {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-icon {
+            font-size: 4rem;
+            color: #00c6ff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portals {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            width: 100%;
+        }
+
+        .portal-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 1; /* Ensure cards are visible */
+            transform: translateY(0); /* Reset transform */
+        }
+
+        .portal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 198, 255, 0.5);
+        }
+
+        .portal-card.admin {
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.2) 0%, rgba(37, 117, 252, 0.2) 100%);
+        }
+
+        .portal-card.customer {
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.2) 0%, rgba(0, 114, 255, 0.2) 100%);
+        }
+
+        .portal-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #00c6ff;
+        }
+
+        .portal-card.admin .portal-icon {
+            color: #9d4edd;
+        }
+
+        .portal-card.customer .portal-icon {
+            color: #00c6ff;
+        }
+
+        .portal-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .portal-card p {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 114, 255, 0.4);
+        }
+
+        .btn.admin {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+
+        .btn.admin:hover {
+            box-shadow: 0 8px 20px rgba(106, 17, 203, 0.4);
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #00c6ff;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .circuit-line {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .portals {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .portal-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            header {
+                padding: 30px 15px;
+            }
+            
+            .logo-text {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- CLEAN HEADER - ALL CONTENT IN ONE PLACE -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-laptop-code logo-icon"></i>
+            <div class="logo-text">ElectroStore</div>
+        </div>
+        <div class="tagline">Premium Electronics & Gadgets Marketplace</div>
+        <div class="subtitle">Your Ultimate Destination for Latest Technology and Innovation</div>
+    </header>
+
+    <div class="hero">
+        <div class="floating-shapes" id="floatingShapes"></div>
+        
+        <!-- PORTAL CARDS - ENSURED VISIBILITY -->
+        <div class="portals">
+            <div class="portal-card admin">
+                <i class="fas fa-user-shield portal-icon"></i>
+                <h2>Admin Portal</h2>
+                <p>Manage products, inventory, and store operations</p>
+                <a href="AdminLogin.html" class="btn admin">Admin Login</a>
+            </div>
+            
+            <div class="portal-card customer">
+                <i class="fas fa-shopping-cart portal-icon"></i>
+                <h2>Customer Portal</h2>
+                <p>Browse and purchase our latest electronics</p>
+                <a href="CustomerLogin.html" class="btn">Customer Login</a>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-microchip"></i>
+                <span>Latest Tech Products</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shipping-fast"></i>
+                <span>Fast & Free Shipping</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Payments</span>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 ElectroStore. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // GSAP Animations with proper error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating shapes for background
+            const floatingShapes = document.getElementById('floatingShapes');
+            
+            // Add circuit board lines
+            for (let i = 0; i < 8; i++) {
+                const line = document.createElement('div');
+                line.classList.add('circuit-line');
+                line.style.width = `${Math.random() * 200 + 50}px`;
+                line.style.height = '2px';
+                line.style.left = `${Math.random() * 100}%`;
+                line.style.top = `${Math.random() * 100}%`;
+                line.style.transform = `rotate(${Math.random() * 360}deg)`;
+                floatingShapes.appendChild(line);
+                
+                // Animate lines
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(line, {
+                        rotation: 360,
+                        duration: Math.random() * 20 + 10,
+                        repeat: -1,
+                        ease: "none"
+                    });
+                }
+            }
+            
+            // Add tech shapes
+            for (let i = 0; i < 12; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                shape.style.width = `${Math.random() * 80 + 20}px`;
+                shape.style.height = shape.style.width;
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                
+                // Make some shapes rectangular (like chips)
+                if (i % 3 === 0) {
+                    shape.style.borderRadius = '5px';
+                    shape.style.width = `${Math.random() * 40 + 20}px`;
+                    shape.style.height = `${Math.random() * 30 + 15}px`;
+                }
+                
+                floatingShapes.appendChild(shape);
+                
+                // Animate shapes
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(shape, {
+                        x: Math.random() * 100 - 50,
+                        y: Math.random() * 100 - 50,
+                        duration: Math.random() * 15 + 10,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut"
+                    });
+                }
+            }
+            
+            // Animate page elements on load only if GSAP is available
+            if (typeof gsap !== 'undefined') {
+                const tl = gsap.timeline();
+                tl.from('header', {duration: 1, y: -50, opacity: 0, ease: "power3.out"})
+                  .from('.portal-card', {duration: 0.8, y: 50, opacity: 0, stagger: 0.3, ease: "back.out(1.7)"}, "-=0.5")
+                  .from('.feature', {duration: 0.5, y: 20, opacity: 0, stagger: 0.1, ease: "power3.out"}, "-=0.3");
+                
+                // Add hover animations to portal cards
+                const portalCards = document.querySelectorAll('.portal-card');
+                portalCards.forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        gsap.to(this, {duration: 0.3, scale: 1.03, ease: "back.out(1.7)"});
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        gsap.to(this, {duration: 0.3, scale: 1, ease: "back.out(1.7)"});
+                    });
+                });
+                
+                // Add animation to buttons on hover
+                const buttons = document.querySelectorAll('.btn');
+                buttons.forEach(button => {
+                    button.addEventListener('mouseenter', function() {
+                        gsap.to(this, {duration: 0.3, scale: 1.05, ease: "back.out(1.7)"});
+                    });
+                    
+                    button.addEventListener('mouseleave', function() {
+                        gsap.to(this, {duration: 0.3, scale: 1, ease: "back.out(1.7)"});
+                    });
+                });
+            } else {
+                // Fallback if GSAP fails to load - ensure all elements are visible
+                console.log('GSAP not loaded, showing elements normally');
+                const elements = document.querySelectorAll('.portal-card, .feature');
+                elements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }
+        });
+
+        // Additional fallback - if elements are still not visible after 2 seconds
+        setTimeout(() => {
+            const portalCards = document.querySelectorAll('.portal-card');
+            let allVisible = true;
+            
+            portalCards.forEach(card => {
+                const style = window.getComputedStyle(card);
+                if (style.opacity === '0' || style.display === 'none') {
+                    allVisible = false;
+                }
+            });
+            
+            if (!allVisible) {
+                console.log('Forcing portal cards to be visible');
+                portalCards.forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    card.style.visibility = 'visible';
+                });
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

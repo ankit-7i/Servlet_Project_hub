@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login | TechElectro - Premium Electronics Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-section {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-section::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -50px;
+            left: -50px;
+        }
+
+        .tech-section::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #ffdd40;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .features {
+            list-style: none;
+            margin-top: 30px;
+            z-index: 1;
+        }
+
+        .features li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .features i {
+            margin-right: 10px;
+            color: #ffdd40;
+        }
+
+        .login-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-header h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #0072ff;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #e1e5ee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #0072ff;
+            box-shadow: 0 0 0 3px rgba(0, 114, 255, 0.1);
+            outline: none;
+        }
+
+        /* SUPER PROMINENT LOGIN BUTTON */
+        .btn-login {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            border: none;
+            padding: 18px 25px;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 25px;
+            box-shadow: 0 8px 25px rgba(0, 114, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .btn-login::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.6s;
+        }
+
+        .btn-login:hover::before {
+            left: 100%;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 114, 255, 0.6);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .btn-login:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 114, 255, 0.5);
+        }
+
+        /* Pulsing animation for extra attention */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 8px 25px rgba(0, 114, 255, 0.5); }
+            50% { box-shadow: 0 8px 30px rgba(0, 114, 255, 0.8); }
+            100% { box-shadow: 0 8px 25px rgba(0, 114, 255, 0.5); }
+        }
+
+        .btn-login {
+            animation: pulse-glow 2s infinite;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+        }
+
+        .signup-link a {
+            color: #0072ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .signup-link a:hover {
+            color: #00c6ff;
+            text-decoration: underline;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e1e5ee;
+        }
+
+        .divider span {
+            padding: 0 15px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #e1e5ee;
+            background: white;
+            color: #555;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .facebook:hover {
+            background: #3b5998;
+            color: white;
+            border-color: #3b5998;
+        }
+
+        .google:hover {
+            background: #dd4b39;
+            color: white;
+            border-color: #dd4b39;
+        }
+
+        .twitter:hover {
+            background: #1da1f2;
+            color: white;
+            border-color: #1da1f2;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .circuit-line {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .tech-section, .login-section {
+                width: 100%;
+            }
+            
+            .tech-section {
+                padding: 30px 20px;
+            }
+            
+            .login-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tech-section">
+            <div class="floating-shapes" id="floatingShapes"></div>
+            <div class="logo"><i class="fas fa-laptop-code"></i> TechElectro</div>
+            <p class="tagline">Your Ultimate Electronics Destination</p>
+            <ul class="features">
+                <li><i class="fas fa-microchip"></i> Latest Tech Products</li>
+                <li><i class="fas fa-shipping-fast"></i> Free Shipping Over $99</li>
+                <li><i class="fas fa-shield-alt"></i> Secure Payment Processing</li>
+                <li><i class="fas fa-headset"></i> 24/7 Tech Support</li>
+            </ul>
+        </div>
+        
+        <div class="login-section">
+            <div class="login-header">
+                <h1>Welcome Back!</h1>
+                <p>Sign in to access your account and continue shopping</p>
+            </div>
+            
+            <form action="customerlogin" method="post" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" name="cusname" class="form-control" placeholder="Enter your username" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="cuspwd" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                </div>
+                
+                <!-- SUPER VISIBLE LOGIN BUTTON -->
+                <button type="submit" class="btn-login" style="opacity: 1 !important; transform: scale(1) !important;">
+                    <i class="fas fa-sign-in-alt" style="margin-right: 10px;"></i>
+                    LOG IN NOW
+                </button>
+            </form>
+            
+            <div class="signup-link">
+                New to TechElectro? <a href="CustomerRegister.html">Create an account</a>
+            </div>
+            
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+            
+            <div class="social-login">
+                <div class="social-btn facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-btn google">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="social-btn twitter">
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // GSAP Animations with better visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating shapes for background
+            const floatingShapes = document.getElementById('floatingShapes');
+            
+            // Add circuit board lines
+            for (let i = 0; i < 5; i++) {
+                const line = document.createElement('div');
+                line.classList.add('circuit-line');
+                line.style.width = `${Math.random() * 200 + 50}px`;
+                line.style.height = '2px';
+                line.style.left = `${Math.random() * 100}%`;
+                line.style.top = `${Math.random() * 100}%`;
+                line.style.transform = `rotate(${Math.random() * 360}deg)`;
+                floatingShapes.appendChild(line);
+                
+                // Animate lines
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(line, {
+                        rotation: 360,
+                        duration: Math.random() * 20 + 10,
+                        repeat: -1,
+                        ease: "none"
+                    });
+                }
+            }
+            
+            // Add tech shapes
+            for (let i = 0; i < 8; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                shape.style.width = `${Math.random() * 60 + 20}px`;
+                shape.style.height = shape.style.width;
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                
+                // Make some shapes rectangular (like chips)
+                if (i % 3 === 0) {
+                    shape.style.borderRadius = '5px';
+                    shape.style.width = `${Math.random() * 40 + 20}px`;
+                    shape.style.height = `${Math.random() * 30 + 15}px`;
+                }
+                
+                floatingShapes.appendChild(shape);
+                
+                // Animate shapes
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(shape, {
+                        x: Math.random() * 100 - 50,
+                        y: Math.random() * 100 - 50,
+                        duration: Math.random() * 10 + 10,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut"
+                    });
+                }
+            }
+            
+            // Animate form elements on load
+            if (typeof gsap !== 'undefined') {
+                const tl = gsap.timeline();
+                tl.from('.tech-section', {duration: 1, x: -100, opacity: 0, ease: "power3.out"})
+                  .from('.login-section', {duration: 0.8, x: 100, opacity: 0, ease: "power3.out"}, "-=0.5")
+                  .from('.form-group', {duration: 0.5, y: 20, opacity: 0, stagger: 0.1}, "-=0.3")
+                  .from('.btn-login', {duration: 0.8, y: 40, opacity: 0, scale: 0.9, ease: "back.out(1.7)"}, "-=0.3")
+                  .from('.signup-link', {duration: 0.5, y: 20, opacity: 0}, "-=0.2")
+                  .from('.social-btn', {duration: 0.4, scale: 0, opacity: 0, stagger: 0.1}, "-=0.2");
+                
+                // Add hover animations to form inputs
+                const inputs = document.querySelectorAll('.form-control');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', function() {
+                        gsap.to(this, {duration: 0.3, scale: 1.02, ease: "back.out(1.7)"});
+                    });
+                    
+                    input.addEventListener('blur', function() {
+                        gsap.to(this, {duration: 0.3, scale: 1, ease: "back.out(1.7)"});
+                    });
+                });
+                
+                // Add animation to login button on hover
+                const loginBtn = document.querySelector('.btn-login');
+                loginBtn.addEventListener('mouseenter', function() {
+                    gsap.to(this, {duration: 0.3, scale: 1.08, ease: "back.out(1.7)"});
+                });
+                
+                loginBtn.addEventListener('mouseleave', function() {
+                    gsap.to(this, {duration: 0.3, scale: 1, ease: "back.out(1.7)"});
+                });
+            } else {
+                // Fallback if GSAP not available
+                console.log('GSAP not loaded - showing elements normally');
+                const elements = document.querySelectorAll('.tech-section, .login-section, .form-group, .btn-login, .signup-link, .social-btn');
+                elements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+            }
+            
+            // Form submission animation
+            const form = document.getElementById('loginForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if(username && password) {
+                    // Animate button on submit
+                    const loginBtn = document.querySelector('.btn-login');
+                    if (typeof gsap !== 'undefined') {
+                        gsap.to(loginBtn, {
+                            duration: 0.5, 
+                            backgroundColor: "#4CAF50", 
+                            scale: 0.95, 
+                            ease: "power2.inOut"
+                        });
+                        
+                        // Add checkmark animation
+                        const checkmark = document.createElement('i');
+                        checkmark.className = 'fas fa-check';
+                        checkmark.style.color = 'white';
+                        checkmark.style.position = 'absolute';
+                        checkmark.style.fontSize = '1.5rem';
+                        checkmark.style.opacity = '0';
+                        loginBtn.innerHTML = '';
+                        loginBtn.appendChild(checkmark);
+                        
+                        gsap.to(checkmark, {
+                            duration: 0.5, 
+                            opacity: 1, 
+                            scale: 1.2, 
+                            ease: "back.out(1.7)"
+                        });
+                    }
+                    
+                    // After animation, submit the form
+                    setTimeout(() => {
+                        form.submit();
+                    }, 1000);
+                } else {
+                    // Shake animation for empty fields
+                    if (typeof gsap !== 'undefined') {
+                        gsap.to('.form-control', {duration: 0.1, x: 10, repeat: 5, yoyo: true, ease: "power1.inOut"});
+                    } else {
+                        alert('Please fill in both username and password!');
+                    }
+                }
+            });
+        });
+
+        // Force button visibility after 1 second as backup
+        setTimeout(() => {
+            const loginBtn = document.querySelector('.btn-login');
+            if (loginBtn) {
+                loginBtn.style.opacity = '1';
+                loginBtn.style.transform = 'scale(1)';
+                loginBtn.style.visibility = 'visible';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

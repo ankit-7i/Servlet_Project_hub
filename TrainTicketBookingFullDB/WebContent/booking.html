@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Train Ticket Booking</title>
+  <style>
+    body{font-family:Arial;margin:30px}
+    .row{margin:8px 0}
+    input[type=text], input[type=number]{width:320px;padding:8px}
+    .group{margin:12px 0}
+    button{padding:10px 14px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <h2>Train Ticket Booking Form</h2>
+  <form action="booking" method="post">
+    <div class="row">Passenger Name: <br><input type="text" name="pname" required></div>
+    <div class="row">Age: <br><input type="number" name="age" required></div>
+    <div class="row">Phone Number: <br><input type="text" name="phn" required></div>
+    <div class="row">Train Name: <br><input type="text" name="tname" required></div>
+    <div class="row">Number of Passengers: <br><input type="number" name="num" value="1" required></div>
+    <div class="row">Source: <br><input type="text" name="src" required></div>
+    <div class="row">Destination: <br><input type="text" name="dest" required></div>
+
+    <div class="group">
+      Gender:
+      <label><input type="radio" name="gender" value="Male" required> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label>
+      <label><input type="radio" name="gender" value="Other"> Other</label>
+    </div>
+
+    <div class="group">
+      Class Type:
+      <label><input type="radio" name="ctype" value="General" required> General</label>
+      <label><input type="radio" name="ctype" value="Sleeper"> Sleeper</label>
+      <label><input type="radio" name="ctype" value="3rd AC"> 3rd AC</label>
+      <label><input type="radio" name="ctype" value="2nd AC"> 2nd AC</label>
+      <label><input type="radio" name="ctype" value="1st AC"> 1st AC</label>
+    </div>
+
+    <div class="group">
+      Facilities:
+      <label><input type="checkbox" name="food"> Food Veg</label>
+      <label><input type="checkbox" name="foodnv"> Food Non-Veg</label>
+      <label><input type="checkbox" name="blanket"> Blanket</label>
+      <label><input type="checkbox" name="snacks"> Snacks</label>
+    </div>
+
+    <button type="submit">Book Ticket</button>
+  </form>
+</body>
+</html>

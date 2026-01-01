@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Register</title>
+
+<style>
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#00b09b,#96c93d);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+}
+
+.box{
+    width:450px;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+h1{
+    margin-bottom:25px;
+    color:#00a875;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+
+input[type="submit"]{
+    background:#00a875;
+    color:white;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+input[type="submit"]:hover{
+    background:#007c57;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="box">
+<form action="reg" method="post">
+    <h1>Student Form</h1>
+
+    Student Id:<br>
+    <input type="text" name="id"><br>
+
+    Student Name:<br>
+    <input type="text" name="name"><br>
+
+    Student Phone:<br>
+    <input type="text" name="phone"><br>
+
+    <input type="submit" value="submit">
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | TechElectro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .left-section {
+            flex: 1;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #ffdd40;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .benefits {
+            list-style: none;
+        }
+
+        .benefits li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits i {
+            margin-right: 10px;
+            color: #ffdd40;
+            font-size: 1.2rem;
+        }
+
+        .right-section {
+            flex: 1.2;
+            background: white;
+            padding: 40px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #0072ff;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            border: 2px solid #e1e5ee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #0072ff;
+            box-shadow: 0 0 0 3px rgba(0, 114, 255, 0.1);
+            outline: none;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        /* REGISTRATION BUTTON - CLEAR AND VISIBLE */
+        .register-button-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
+        }
+
+        .btn-register:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 114, 255, 0.4);
+            background: linear-gradient(135deg, #00ff88 0%, #00c851 100%);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #0072ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            color: #00c6ff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-section, .right-section {
+                width: 100%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="logo"><i class="fas fa-laptop-code"></i> TechElectro</div>
+            <p class="tagline">Join Our Electronics Community</p>
+            <ul class="benefits">
+                <li><i class="fas fa-microchip"></i> Access to Latest Tech Products</li>
+                <li><i class="fas fa-shipping-fast"></i> Free Shipping on Orders Over $99</li>
+                <li><i class="fas fa-bolt"></i> Early Access to New Releases</li>
+                <li><i class="fas fa-percentage"></i> Exclusive Member Discounts</li>
+                <li><i class="fas fa-headset"></i> Priority Tech Support</li>
+            </ul>
+        </div>
+        
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="form-header">
+                <h1>Create Your Account</h1>
+                <p>Join thousands of tech enthusiasts today</p>
+            </div>
+            
+            <form action="cusreg" method="post" id="registerForm">
+                <!-- Username and Password -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="username" name="cusuname" class="form-control" placeholder="Choose username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="cuspwd" class="form-control" placeholder="Create password" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- First Name and Last Name -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="firstname" name="cusfname" class="form-control" placeholder="Your first name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="lastname" name="cuslname" class="form-control" placeholder="Your last name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-home"></i>
+                        <input type="text" id="address" name="cusaddr" class="form-control full-width" placeholder="Your full address">
+                    </div>
+                </div>
+
+                <!-- Email and Mobile -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" id="email" name="cusmail" class="form-control" placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="text" id="mobile" name="cusmob" class="form-control" placeholder="Your mobile number">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REGISTRATION BUTTON - CLEAR AND VISIBLE -->
+                <div class="register-button-container">
+                    <button type="submit" class="btn-register">
+                        <i class="fas fa-user-plus"></i> CREATE ACCOUNT
+                    </button>
+                </div>
+            </form>
+            
+            <div class="login-link">
+                Already have an account? <a href="CustomerLogin.html">Log in here</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerBtn = document.querySelector('.btn-register');
+            
+            registerBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            registerBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+
+            // Add focus effects to inputs
+            const inputs = document.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#0072ff';
+                    this.style.boxShadow = '0 0 0 3px rgba(0, 114, 255, 0.1)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = '#e1e5ee';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

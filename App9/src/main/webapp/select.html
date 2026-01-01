@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User Details</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    background: #ffffff;
+    padding: 45px 60px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 360px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  h2 {
+    color: #2e7d32;
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #6C63FF;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  a:hover {
+    background-color: #5548D9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(108, 99, 255, 0.4);
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      width: 90%;
+      padding: 30px 25px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    a {
+      padding: 10px 22px;
+      font-size: 14px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Click to Get User Details</h2>
+    <a href="selects">Click Here</a>
+  </div>
+</body>
+</html>

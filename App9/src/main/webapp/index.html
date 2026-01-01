@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Login</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #4158D0, #C850C0, #FFCC70);
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .login-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    padding: 40px 30px;
+    width: 350px;
+    text-align: center;
+    color: white;
+    animation: fadeIn 1.2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .login-box h2 {
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  input[type="text"], input[type="password"] {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: rgba(0,0,0,0.25);
+    color: white;
+    transition: 0.3s ease;
+  }
+
+  input::placeholder {
+    color: rgba(255,255,255,0.9); /* visible placeholder */
+  }
+
+  input:focus {
+    background: rgba(0,0,0,0.35);
+    transform: scale(1.02);
+  }
+
+  input[type="submit"] {
+    background: linear-gradient(45deg, #6C63FF, #FF6584);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background: linear-gradient(45deg, #5B54E7, #E14E6F);
+    transform: scale(1.05);
+  }
+
+  a {
+    color: #fff;
+    font-weight: 500;
+    margin-top: 15px;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #FFEB3B;
+  }
+
+  @media (max-width: 480px) {
+    .login-box {
+      width: 85%;
+      padding: 30px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Welcome Back</h2>
+  <form action="logins" method="post">
+    <input type="text" name="loginname" placeholder="Enter Username" required>
+    <input type="password" name="passwordlogin" placeholder="Enter Password" required>
+    <input type="submit" value="Login">
+  </form>
+  <a href="Registration.html">New User? Register Here</a>
+</div>
+
+</body>
+</html>

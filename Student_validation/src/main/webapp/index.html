@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Login</title>
+
+<style>
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#0062ff,#00c6ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+}
+
+.card{
+    width:400px;
+    background:white;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+.card h3{
+    margin-bottom:25px;
+    color:#0062ff;
+}
+
+.card input{
+    width:90%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+
+.card input[type="submit"]{
+    background:#0062ff;
+    color:white;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.card input[type="submit"]:hover{
+    background:#0035aa;
+}
+
+a{
+    text-decoration:none;
+    color:#0062ff;
+    font-size:15px;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+<form action="login" method="post">
+    <h3>Student Login Form</h3>
+    
+    Id:<br>
+    <input type="text" name="id"><br>
+
+    Username:<br>
+    <input type="text" name="name"><br>
+
+    <input type="submit" value="login"><br><br>
+
+    <a href="Register.html">New Student Register?</a>
+</form>
+</div>
+
+</body>
+</html>
